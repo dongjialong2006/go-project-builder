@@ -13,8 +13,10 @@ import (
 
 func main() {
 	var config string = ""
-	fs := flag.NewFlagSet("go-project-builder", flag.ContinueOnError)
-	fs.StringVar(&config, "config", "", "toml file name")
+	fs := flag.NewFlagSetWithEnvPrefix("go-project-builder", "GO_PROJECT_BUILDER_", flag.ContinueOnError)
+	fs.StringVar(&config, "path", "", "toml file name or path")
+	fs.String(flag.DefaultConfigFlagname, "", "config location")
+
 	err := fs.Parse(os.Args[1:])
 	if nil != err {
 		fmt.Println(err)

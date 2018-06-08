@@ -67,3 +67,40 @@ func ReadFile(name string) ([]byte, error) {
 
 	return ioutil.ReadAll(fp)
 }
+
+func CreatePath(path string) error {
+	if "" == path {
+		return fmt.Errorf("path is empty.")
+	}
+
+	_, err := os.Stat(path)
+	if nil != err {
+		if os.IsNotExist(err) {
+			err = os.MkdirAll(path, os.ModePerm)
+		}
+	}
+
+	return err
+}
+
+func CreateFile(path string) (*os.File, error) {
+	if "" == path {
+		return nil, fmt.Errorf("path is empty.")
+	}
+
+	var dir string = "./"
+	pos := strings.LastIndex(path, "/")
+	if -1 != pos {
+		dir = path[:pos]
+	} else {
+		path = fmt.Sprintf("./%s", path)
+	}
+	_, err := os.Stat(dir)
+	if nil != err {
+		if os.IsNotExist(err) {
+			err = os.MkdirAll(dir, os.ModePerm)
+		}
+	}
+
+	return os.Create(path)
+}

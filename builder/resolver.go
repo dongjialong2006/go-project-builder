@@ -52,13 +52,9 @@ func (r *Resolver) init() error {
 		if "" == path {
 			continue
 		}
-		data, err := file.ReadFile(path)
-		if nil != err {
-			return err
-		}
 
 		builder := NewBuilder()
-		err = toml.Unmarshal(data, builder)
+		_, err := toml.DecodeFile(path, builder)
 		if nil != err {
 			return err
 		}
@@ -84,7 +80,7 @@ func (r *Resolver) Start() error {
 			continue
 		}
 		wg.Add(1)
-		go builder.Start(r.ctx, wg)
+		go builder.Start(r.ctx, &wg)
 	}
 	wg.Wait()
 	return nil
