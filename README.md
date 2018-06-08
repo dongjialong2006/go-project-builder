@@ -20,8 +20,8 @@ golang项目工程生成器
 ## 配置说明
 
 - 配置项说明如下：
-- `config`：toml类型的配置文件
+- `path`：toml类型的配置名或路径
 
 ## 启动
 
-- ./go-project-builder -file ./cache/config.toml
+- ./go-project-builder -path ./cache/config.toml
