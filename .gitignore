@@ -12,5 +12,6 @@
 *.out
 *.GOPATH
 
+bin
 vendor
 
