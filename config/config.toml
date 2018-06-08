@@ -1,0 +1,56 @@
+# This is a TOML document. Boom.
+
+Title = "example"
+DestPath = "../../"
+
+[Version]
+Content = "const (\n\tOS string = \"\" \n\tArch string = \"\" \n\tBranch string = \"\" \n\tVersion string= \"\" \n\tBuilderTime string = \"\"\n)"
+Description = "project version"
+
+[Example]
+Description = "application example"
+
+[Author]
+Authors = ["dongchaofeng", "dongchaofeng@360.cn", "dongjialong2006@163.com"]
+BuildTime = "2018-06-07 19:00:00"
+Description = "该项目用于测试"
+
+[ReadMe]
+Description = "该项目用于测试"
+
+[MakeFile]
+Description = "该项目用于测试"
+
+[DockerFile]
+Description = "该项目用于测试"
+
+[JenkinsFile]
+Description = "该项目用于测试"
+
+[Cmds]
+	[cmds.cmd]
+	Description = "cmd main function"
+	[cmds.vpn]
+	Description = "vpn main function"
+	
+[Docs]
+	[Docs.'design.doc']
+	Description = "this is design example"
+	[Docs.'接口说明.md']
+	Description = "this is interface example"
+	
+[Pkgs]
+	[Pkgs.log]
+	Description = "this is log example"
+	[Pkgs.protocol]
+	Description = "this is protocol example"
+
+[Types]
+	[Types.types]
+	Description = "this is types example"
+	
+[Configs]
+	[Configs."config.ini"]
+	Description = "this is config example"
+	
+
